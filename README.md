@@ -16,7 +16,7 @@ A robust, enterprise-grade Retrieval-Augmented Generation (RAG) system built to 
 4. [Installation & Execution Guide](#installation--execution-guide)
 5. [Environment Variables](#environment-variables)
 6. [Assessment Evaluation (5 Mandatory Questions)](#assessment-evaluation)
-7. [Streamlit User Interface & Screenshot Instructions](#streamlit-user-interface--screenshot-instructions)
+7. [Interactive Terminal CLI & Streamlit UI](#interactive-terminal-cli--streamlit-ui)
 8. [Project File Structure](#project-file-structure)
 
 ---
@@ -151,7 +151,24 @@ Verify that all 5 assessment questions execute correctly and produce `assessment
 python test_rag.py
 ```
 
-### 6. Launch the Streamlit Web Application
+### 6. Launch the Interactive Terminal CLI (Recommended)
+Launch the interactive terminal interface:
+```bash
+python cli.py
+```
+*(Or simply: `python rag.py`)*
+
+You can also run direct single-shot queries from the terminal:
+```bash
+python cli.py "I have 72% attendance this semester. How many attendance marks will I receive, and am I eligible to appear for the final examination?"
+```
+Or run presets using numbers `1` through `5`:
+```bash
+python cli.py 1
+```
+
+### 7. Optional: Launch the Streamlit Web Application
+If you prefer a browser interface:
 ```bash
 streamlit run app.py
 ```
@@ -186,27 +203,25 @@ Below is the verification audit log evaluating the 5 official assessment questio
 
 ---
 
-## Streamlit User Interface & Screenshot Instructions
+## Interactive Terminal CLI & Streamlit UI
 
-### Features of the Web App
-1. **Interactive Query Console**: Type free-form policy questions and receive grounded advice within seconds.
-2. **One-Click Assessment Buttons**: Five top-level buttons allow instant execution of all assessment queries (Q1 through Q5).
-3. **Evidence Citations**: Supported answers display prominent green verification cards with badge links to specific handbook pages (e.g., `📄 Page 7`).
-4. **Negative Evidence Handling**: Missing policies display a prominent red `[not found]` alert box and clarify that the topic is not covered in the handbook.
-5. **ChromaDB Management**: The sidebar provides live index statistics and a one-click **Rebuild Vector Index** button.
+### 1. Interactive Terminal CLI (`cli.py`)
+The primary interface for this system is an interactive terminal CLI built with `rich`:
+- **Welcome Banner**: Displays system and model parameters.
+- **Preset Shortcuts**: Simply type `1` through `5` and press Enter to run any evaluation question immediately.
+- **Custom Questions**: Type any natural language question to get a real-time grounded response.
+- **Commands**:
+  - `help` / `?`: View command cheat sheet
+  - `examples` / `ex`: View all preset questions with summaries
+  - `about` / `info`: View ChromaDB and Gemini model statistics
+  - `clear` / `cls`: Clear screen
+  - `exit` / `quit` / `q`: Exit CLI
+- **Single-Shot Mode**: Run `python cli.py "Your Question"` or `python cli.py 1` directly from the shell.
 
-### How to Capture Evaluation Screenshots
-1. Start Streamlit in your terminal:
-   ```bash
-   streamlit run app.py
-   ```
-2. In your browser at `http://localhost:8501`:
-   - Click the **Q1: Attendance & Exam Eligibility (72%)** shortcut button. Click **🔍 Ask Advisor**. Notice the green answer box citing `📄 Page 7`.
-   - Take a screenshot of the Q1 result.
-   - Click the **Q3: Swimming Pool & Squash Fee** shortcut button. Click **🔍 Ask Advisor**. Notice the red `[not found]` box with empty sources.
-   - Take a screenshot of the Q3 negative result.
-   - Click the **Q4: Proposing New Student Club** shortcut button. Click **🔍 Ask Advisor**. Notice the citation for `📄 Page 38`.
-   - Take a screenshot of the Q4 club workflow result.
+### 2. Streamlit Web Interface (`app.py`)
+A secondary browser interface built with Streamlit:
+- Run: `streamlit run app.py` (Local URL: `http://localhost:8501`)
+- Features dark theme, responsive example buttons, expandable sidebars, and citation cards.
 
 ---
 
@@ -218,8 +233,10 @@ mirai-policy-advisor/
 ├── chroma_db/                   # Persistent ChromaDB vector database files
 ├── ingest.py                    # PDF extraction, chunking, and ChromaDB indexing
 ├── rag.py                       # RAG retrieval logic and Gemini synthesis
-├── app.py                       # Streamlit interactive chatbot UI
+├── cli.py                       # Interactive terminal CLI advisor (Rich UI)
+├── app.py                       # Streamlit web interface
 ├── test_rag.py                  # Automated test suite for the 5 evaluation questions
+├── test_shortcuts.py            # AppTest suite for shortcut interactions
 ├── assessment_results.json      # Structured test output log
 ├── requirements.txt             # Complete Python package dependency manifest
 ├── .env                         # Local environment file with active GEMINI_API_KEY

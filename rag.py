@@ -288,8 +288,22 @@ def answer(question: str) -> Dict[str, Any]:
 
 if __name__ == "__main__":
     import sys
-    test_q = sys.argv[1] if len(sys.argv) > 1 else "I have 72% attendance this semester. How many attendance marks will I receive, and am I eligible to appear for the final examination?"
-    print(f"Question: {test_q}\n")
-    res = answer(test_q)
-    print(f"Answer: {res['answer']}\n")
-    print(f"Sources: {res['sources']}")
+    if len(sys.argv) > 1:
+        test_q = " ".join(sys.argv[1:])
+        print(f"Question: {test_q}\n")
+        res = answer(test_q)
+        print(f"Answer: {res['answer']}\n")
+        print(f"Sources: {res['sources']}")
+        if res.get("chunk_ids"):
+            print(f"Chunk IDs: {res['chunk_ids']}")
+    else:
+        # Launch interactive CLI terminal
+        try:
+            from cli import main as cli_main
+            cli_main()
+        except ImportError:
+            test_q = "I have 72% attendance this semester. How many attendance marks will I receive, and am I eligible to appear for the final examination?"
+            print(f"Question: {test_q}\n")
+            res = answer(test_q)
+            print(f"Answer: {res['answer']}\n")
+            print(f"Sources: {res['sources']}")
