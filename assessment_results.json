@@ -1,0 +1,64 @@
+[
+  {
+    "id": "Q1",
+    "question": "I have 72% attendance this semester. How many attendance marks will I receive, and am I eligible to appear for the final examination?",
+    "actual_answer": "With 72% attendance, you will receive 4 marks in the attendance evaluation tier. You are strictly DEBARRED (not eligible) from appearing in the Final Exam for that subject, as 72% is below the mandatory 75% eligibility threshold, unless condoned via an approved medical exemption buffer (up to 15%).",
+    "actual_sources": [
+      7
+    ],
+    "expected_status": "supported",
+    "expected_pages": [
+      7
+    ],
+    "expected_summary": "4 marks; strictly debarred from appearing in final exam unless condoned up to 15% via medical exemption.",
+    "status": "PASS"
+  },
+  {
+    "id": "Q2",
+    "question": "Within how many days after recovery must a student submit supporting documents for Medical Leave? What happens if the documents are submitted after this period?",
+    "actual_answer": "All supporting documents for Medical Leave must be submitted to the Campus Manager within 7 days of recovery (counted from the last day of illness or treatment). If requests are submitted after the 7-day window, they will not be accepted under any circumstances. The absence will be treated as a regular unauthorized absence and will count against the student’s attendance percentage with zero relaxation granted, even if the illness was genuine.",
+    "actual_sources": [
+      24
+    ],
+    "expected_status": "supported",
+    "expected_pages": [
+      24
+    ],
+    "expected_summary": "Within 7 days of recovery to Campus Manager. If submitted late, strictly rejected with zero relaxation and treated as unauthorized absence.",
+    "status": "PASS"
+  },
+  {
+    "id": "Q3",
+    "question": "What is the monthly subscription fee for using the campus swimming pool and indoor squash court?",
+    "actual_answer": "[not found]",
+    "actual_sources": [],
+    "expected_status": "not_found",
+    "expected_pages": [],
+    "expected_summary": "[not found] - Swimming pool and squash court facilities are not documented in the handbook.",
+    "status": "PASS"
+  },
+  {
+    "id": "Q4",
+    "question": "What minimum percentage of batch-student support is required to propose a new student club, and which authority reviews the proposal first?",
+    "actual_answer": "To propose a new student club, students must demonstrate verifiable support from at least 40% of the total batch students. The formal proposal and budget must first be submitted to the designated Faculty Coordinator for initial review and feasibility approval.",
+    "actual_sources": [
+      38
+    ],
+    "expected_status": "supported",
+    "expected_pages": [
+      38
+    ],
+    "expected_summary": "At least 40% batch-student support. First reviewed by designated Faculty Coordinator before forwarding to Management.",
+    "status": "PASS"
+  },
+  {
+    "id": "Q5",
+    "question": "What is the default WPA2 password for the Mirai_Student_5G campus Wi-Fi network?",
+    "actual_answer": "[not found]",
+    "actual_sources": [],
+    "expected_status": "not_found",
+    "expected_pages": [],
+    "expected_summary": "[not found] - Campus Wi-Fi passwords and credentials are not documented in the handbook.",
+    "status": "PASS"
+  }
+]
